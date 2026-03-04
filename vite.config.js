@@ -5,6 +5,10 @@ import { defineConfig } from "vite";
 // https://vite.dev/config/
 export default defineConfig({
   logLevel: "error", // Suppress warnings, only show errors
+  server: {
+    host: "0.0.0.0", // Required for Render to detect the open port
+    port: process.env.PORT || 5173, // Use Render's PORT or fallback to 5173
+  },
   plugins: [
     base44({
       // Support for legacy code that imports the base44 SDK with @/integrations, @/entities, etc.
