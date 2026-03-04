@@ -8,6 +8,7 @@ export default defineConfig({
   server: {
     host: "0.0.0.0", // Required for Render to detect the open port
     port: process.env.PORT || 5173, // Use Render's PORT or fallback to 5173
+    allowedHosts: ["temitopeserentainer.onrender.com", "temitopeseretainer.onrender.com"],
   },
   plugins: [
     base44({
