@@ -23,9 +23,10 @@ export default function RequestSong() {
 
   const submitRequestMutation = useMutation({
     mutationFn: async (data) => {
-      const request = await base44.entities.SongRequest.create(data);
-      await base44.entities.Song.update(selectedSong.id, {
-        play_count: (selectedSong.play_count || 0) + 1,
+      // Create the request (this also increments play_count on server)
+      const request = await base44.entities.SongRequest.create({
+        song_id: selectedSong.id,
+        requester_name: requesterName,
       });
       return request;
     },

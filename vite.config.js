@@ -1,24 +1,36 @@
-import base44 from "@base44/vite-plugin";
+// Base44 plugin disabled - using local PostgreSQL backend
+// import base44 from "@base44/vite-plugin";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
-  logLevel: "error", // Suppress warnings, only show errors
+  logLevel: "error",
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   server: {
-    host: "0.0.0.0", // Required for Render to detect the open port
-    port: process.env.PORT || 5173, // Use Render's PORT or fallback to 5173
+    host: "0.0.0.0",
+    port: process.env.PORT || 5173,
     allowedHosts: ["temitopeserentainer.onrender.com", "temitopeseretainer.onrender.com"],
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      }
+    }
   },
   plugins: [
-    base44({
-      // Support for legacy code that imports the base44 SDK with @/integrations, @/entities, etc.
-      // can be removed if the code has been updated to use the new SDK imports from @base44/sdk
-      legacySDKImports: process.env.BASE44_LEGACY_SDK_IMPORTS === "true",
-      hmrNotifier: true,
-      navigationNotifier: true,
-      visualEditAgent: true,
-    }),
+    // base44({
+    //   legacySDKImports: process.env.BASE44_LEGACY_SDK_IMPORTS === "true",
+    //   hmrNotifier: true,
+    //   navigationNotifier: true,
+    //   visualEditAgent: true,
+    // }),
     react(),
   ],
 });
+
