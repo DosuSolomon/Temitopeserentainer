@@ -16,7 +16,7 @@ export default function ArtistDashboard() {
   const [showAddDialog, setShowAddDialog] = useState(false);
   const queryClient = useQueryClient();
 
-  const requestPageUrl = window.location.origin + createPageUrl("RequestSong");
+  const requestPageUrl = window.location.origin + createPageUrl("Welcome");
 
   const { data: songs = [], isLoading: loadingSongs } = useQuery({
     queryKey: ["songs"],

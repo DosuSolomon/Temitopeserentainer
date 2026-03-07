@@ -49,10 +49,12 @@
  */
 import ArtistDashboard from "./pages/ArtistDashboard";
 import RequestSong from "./pages/RequestSong";
+import Welcome from "./pages/Welcome.jsx";
 
 export const PAGES = {
   ArtistDashboard: ArtistDashboard,
   RequestSong: RequestSong,
+  Welcome: Welcome,
 };
 
 export const pagesConfig = {

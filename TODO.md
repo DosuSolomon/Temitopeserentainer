@@ -1,29 +1,16 @@
-# TODO: Connect to Local PostgreSQL Database
+# TODO - Create Welcome Page
 
-## Steps Completed:
-1. [x] Create Prisma schema for Song and SongRequest entities
-2. [x] Create Express server with API endpoints
-3. [x] Update frontend API client to use local backend
+## Task: Create welcome.apx page
+The welcome page displays when users scan the QR code on ArtistDashboard page.
 
-## Steps Remaining:
-4. [ ] Configure database connection in server/.env
-5. [ ] Install server dependencies: cd server && npm install
-6. [ ] Generate Prisma client: npm run db:generate
-7. [ ] Push schema to database: npm run db:push
-8. [ ] Start the backend server: npm run dev (in server folder)
-9. [ ] Start the frontend: npm run dev (in root folder)
+## Steps:
+- [x] 1. Create Welcome.apx page with background image, text content, and buttons
+- [x] 2. Update pages.config.js to import and register Welcome page
+- [x] 3. Update ArtistDashboard.jsx to point QR code to Welcome page
+- [x] 4. Set Welcome as main page in pages.config.js
 
-## Database Configuration
-- Copy server/.env.example to server/.env
-- Update DATABASE_URL with your PostgreSQL credentials
-- Format: postgresql://username:password@localhost:5432/database_name
-
-## API Endpoints (running on port 3001):
-- GET    /api/songs        - List all songs
-- POST   /api/songs        - Create a new song
-- DELETE /api/songs/:id    - Delete a song
-- GET    /api/requests     - List all requests (optional ?status=pending)
-- POST   /api/requests     - Create a new request
-- PATCH  /api/requests/:id - Update request status
-
+## Account Details for "Leave a tip" Dialog:
+- Moniepoint: 6420147645
+- GTBank: 0878839156
+- Account Name: Temitope Serentainer
 
