@@ -86,7 +86,9 @@ app.delete('/api/songs/:id', async (req, res) => {
 app.get('/api/requests', async (req, res) => {
   try {
     const { status, sort } = req.query;
-    const orderBy = sort?.replace('-', '') || 'created_date';
+    console.log('GET /api/requests - status:', status, 'sort:', sort);
+    
+    const orderByField = sort?.replace('-', '') || 'created_date';
     const order = sort?.startsWith('-') ? 'desc' : 'asc';
     
     const where = status ? { status } : {};
@@ -94,10 +96,11 @@ app.get('/api/requests', async (req, res) => {
     const requests = await prisma.songRequest.findMany({
       where,
       include: { song: true },
-      orderBy: { [orderBy]: order }
+      orderBy: { [orderByField]: order }
     });
     res.json(requests);
   } catch (error) {
+    console.error('Error fetching requests:', error);
     res.status(500).json({ error: error.message });
   }
 });
