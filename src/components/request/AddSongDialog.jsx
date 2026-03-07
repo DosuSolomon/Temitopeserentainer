@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { base44 } from "@/api/base44Client";
+import { songApi } from "@/api/apiClient";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   Dialog,
@@ -26,7 +26,7 @@ export default function AddSongDialog({ open, onClose }) {
   const queryClient = useQueryClient();
 
   const addSongMutation = useMutation({
-    mutationFn: (data) => base44.entities.Song.create(data),
+    mutationFn: (data) => songApi.create(data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["songs"] });
       setTitle("");

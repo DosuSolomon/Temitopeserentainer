@@ -1,5 +1,5 @@
 import React from "react";
-import { base44 } from "@/api/base44Client";
+import { requestApi } from "@/api/apiClient";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ export default function RequestQueue({ requests }) {
 
   const updateStatusMutation = useMutation({
     mutationFn: ({ id, status }) =>
-      base44.entities.SongRequest.update(id, { status }),
+      requestApi.update(id, { status }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["requests"] });
     },

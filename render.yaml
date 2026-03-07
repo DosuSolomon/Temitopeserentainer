@@ -1,0 +1,23 @@
+services:
+  # Backend API Service
+  - name: song-request-backend
+    type: web
+    env: node
+    region: oregon
+    buildCommand: npm install && npx prisma generate
+    startCommand: node index.js
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://temitopeserentainer:soaXi6ZxAJHMayNQZakPLUjZij5Lnj4r@dpg-d6lq2cc50q8c73a8t9ig-a/temitopeserentainer
+      - key: NODE_ENV
+        value: production
+    disk:
+      enabled: false
+    scaling:
+      minInstances: 1
+      maxInstances: 1
+
+# Note: This render.yaml is for reference only
+# You'll need to manually create the backend service on Render Dashboard
+# or push this file to your GitHub repository and connect it to Render
+

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { base44 } from "@/api/base44Client";
+import { songApi, requestApi } from "@/api/apiClient";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -17,14 +17,16 @@ export default function RequestSong() {
 
   const { data: songs = [], isLoading } = useQuery({
     queryKey: ["songs"],
-    queryFn: () =>
-      base44.entities.Song.filter({ is_available: true }, "-play_count"),
+    queryFn: async () => {
+      const allSongs = await songApi.list("-play_count");
+      return allSongs.filter(song => song.is_available === true);
+    },
   });
 
   const submitRequestMutation = useMutation({
     mutationFn: async (data) => {
       // Create the request (this also increments play_count on server)
-      const request = await base44.entities.SongRequest.create({
+      const request = await requestApi.create({
         song_id: selectedSong.id,
         requester_name: requesterName,
       });

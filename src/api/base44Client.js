@@ -1,8 +1,15 @@
-// Use relative URLs so requests go through Vite proxy
-// This works for both local development and when accessed from mobile devices on the same network
+// API configuration for deployment
+// Use VITE_API_URL environment variable for production (deployed on Render)
+// Falls back to proxy-relative URLs for local development
+
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const fetchApi = async (endpoint, options = {}) => {
-  const response = await fetch(endpoint, {
+  // For production: use absolute URL from VITE_API_URL
+  // For development: use relative URL (goes through Vite proxy)
+  const baseUrl = API_BASE_URL || '';
+  
+  const response = await fetch(`${baseUrl}${endpoint}`, {
     headers: {
       'Content-Type': 'application/json',
       ...options.headers,
@@ -79,4 +86,3 @@ export const base44 = {
 };
 
 export default base44;
-

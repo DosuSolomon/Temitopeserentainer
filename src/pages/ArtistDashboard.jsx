@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { base44 } from "@/api/base44Client";
+import { songApi, requestApi } from "@/api/apiClient";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { QRCodeSVG } from "qrcode.react";
 import { createPageUrl } from "@/utils";
@@ -20,21 +20,17 @@ export default function ArtistDashboard() {
 
   const { data: songs = [], isLoading: loadingSongs } = useQuery({
     queryKey: ["songs"],
-    queryFn: () => base44.entities.Song.list("-created_date"),
+    queryFn: () => songApi.list("-created_date"),
   });
 
   const { data: requests = [], isLoading: loadingRequests } = useQuery({
     queryKey: ["requests"],
-    queryFn: () =>
-      base44.entities.SongRequest.filter(
-        { status: "pending" },
-        "-created_date",
-      ),
+    queryFn: () => requestApi.list("pending", "-created_date"),
     refetchInterval: 3000,
   });
 
   const deleteSongMutation = useMutation({
-    mutationFn: (id) => base44.entities.Song.delete(id),
+    mutationFn: (id) => songApi.delete(id),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["songs"] }),
   });
 
