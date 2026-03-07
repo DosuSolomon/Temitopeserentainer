@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://song-request-backend.onrender.com';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://temitopeserentainer-8spp.onrender.com';
 
 async function fetchAPI(endpoint, options = {}) {
   const url = `${API_BASE_URL}${endpoint}`;
