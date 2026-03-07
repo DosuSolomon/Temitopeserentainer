@@ -1,11 +1,12 @@
+
 services:
   # Backend API Service
   - name: song-request-backend
     type: web
     env: node
     region: oregon
-    buildCommand: cd server && npm install && npx prisma generate
-    startCommand: cd server && node index.js
+    buildCommand: npm install && npx prisma generate
+    startCommand: npm run server
     envVars:
       - key: DATABASE_URL
         value: postgresql://temitopeserentainer:soaXi6ZxAJHMayNQZakPLUjZij5Lnj4r@dpg-d6lq2cc50q8c73a8t9ig-a/temitopeserentainer
