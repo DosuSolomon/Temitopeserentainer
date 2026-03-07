@@ -26,7 +26,9 @@ app.use(express.json());
 app.get('/api/songs', async (req, res) => {
   try {
     const { sort, is_available } = req.query;
-    const orderBy = sort?.replace('-', '') || 'created_date';
+    console.log('GET /api/songs - sort:', sort, 'is_available:', is_available);
+    
+    const orderByField = sort?.replace('-', '') || 'created_date';
     const order = sort?.startsWith('-') ? 'desc' : 'asc';
     
     const where = {};
@@ -36,22 +38,25 @@ app.get('/api/songs', async (req, res) => {
     
     const songs = await prisma.song.findMany({
       where,
-      orderBy: { [orderBy]: order }
+      orderBy: { [orderByField]: order }
     });
     res.json(songs);
   } catch (error) {
+    console.error('Error fetching songs:', error);
     res.status(500).json({ error: error.message });
   }
 });
 
 app.post('/api/songs', async (req, res) => {
   try {
+    console.log('POST /api/songs - body:', req.body);
     const { title, artist, album, genre, is_available = true } = req.body;
     const song = await prisma.song.create({
       data: { title, artist, album, genre, is_available }
     });
     res.json(song);
   } catch (error) {
+    console.error('Error creating song:', error);
     res.status(500).json({ error: error.message });
   }
 });
