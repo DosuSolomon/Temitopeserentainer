@@ -1,16 +1,12 @@
-# TODO - Create Welcome Page
+# Sidebar Complete ✅
 
-## Task: Create welcome.apx page
-The welcome page displays when users scan the QR code on ArtistDashboard page.
+**Mobile Yahoo Mail Style:**
+- Hamburger fixed top-left
+- Dark overlay + sidebar slide left w-80 bg-black/80 backdrop-blur
+- All content (Songs 350→RequestSong SPA nav, categories, streaming/social links, About/Feedback/Tip)
+- Dialogs: Yahoo bottom sheets (handle bar, curved top, responsive h-50/66vh)
+- No reload, icons visible, drop-shadows
 
-## Steps:
-- [x] 1. Create Welcome.apx page with background image, text content, and buttons
-- [x] 2. Update pages.config.js to import and register Welcome page
-- [x] 3. Update ArtistDashboard.jsx to point QR code to Welcome page
-- [x] 4. Set Welcome as main page in pages.config.js
+**Test:** `npm run dev`
 
-## Account Details for "Leave a tip" Dialog:
-- Moniepoint: 6420147645
-- GTBank: 0878839156
-- Account Name: Temitope Serentainer
-
+Done!

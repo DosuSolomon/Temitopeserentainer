@@ -31,7 +31,7 @@ export default function Welcome() {
       </div>
 
       {/* Content */}
-      <div className="relative min-h-screen flex flex-col justify-center items-center px-4 py-8">
+      <div className="relative min-h-[100svh] md:min-h-screen flex flex-col justify-center items-center px-4 py-8">
         {/* Main Text Content */}
         <div className="text-center text-white mb-16">
           <h1 className="text-3xl md:text-5xl font-bold mb-4 tracking-wide">
@@ -43,16 +43,11 @@ export default function Welcome() {
         </div>
 
         {/* Buttons at bottom */}
-        <div className="absolute bottom-8 left-4 right-4 flex justify-center gap-4 md:gap-8">
+        <div className="flex justify-center">
           <Button
-            onClick={() => setShowTipDialog(true)}
-            className="flex-1 md:flex-none md:px-8 bg-white/20 hover:bg-white/30 backdrop-blur text-white border-2 border-white/50 text-lg py-6"
-          >
-            <Heart className="w-5 h-5 mr-2" />
-            Leave a tip
-          </Button>
-          <Button
-            onClick={() => window.location.href = createPageUrl("RequestSong")}
+            onClick={() =>
+              (window.location.href = createPageUrl("RequestSong"))
+            }
             className="flex-1 md:flex-none md:px-8 bg-purple-600 hover:bg-purple-700 text-white text-lg py-6"
           >
             <Music className="w-5 h-5 mr-2" />
@@ -72,7 +67,7 @@ export default function Welcome() {
               Support the artist by leaving a tip
             </DialogDescription>
           </DialogHeader>
-          
+
           <div className="space-y-6 py-4">
             {/* Moniepoint */}
             <div className="bg-gray-50 p-4 rounded-lg">
@@ -109,7 +104,9 @@ export default function Welcome() {
             {/* Account Name */}
             <div className="text-center pt-2">
               <p className="text-sm text-gray-500">Account Name</p>
-              <p className="text-lg font-semibold text-gray-900">Temitope Serentainer</p>
+              <p className="text-lg font-semibold text-gray-900">
+                Temitope Serentainer
+              </p>
             </div>
           </div>
 

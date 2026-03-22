@@ -21,8 +21,8 @@ module.exports = {
           foreground: "hsl(var(--popover-foreground))",
         },
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "hsl(335 100% 18%)",
+          foreground: "hsl(0 0% 100%)",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -87,3 +87,4 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate")],
 };
+

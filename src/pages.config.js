@@ -57,6 +57,8 @@ export const PAGES = {
   Welcome: Welcome,
 };
 
+import Layout from "./Layout.jsx";
+
 export const pagesConfig = {
   mainPage: "ArtistDashboard",
   Pages: PAGES,

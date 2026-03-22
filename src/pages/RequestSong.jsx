@@ -83,87 +83,92 @@ export default function RequestSong() {
 
   if (!selectedSong) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 p-4 md:p-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
-              🎵 Request a Song
-            </h1>
-            <p className="text-white/90 text-lg">
-              Choose a song you'd like to hear
-            </p>
-          </div>
+      <div className="fixed inset-0 bg-cover bg-center bg-no-repeat" style={{
+        backgroundImage: `url('/src/images/Artist.jpeg')`,
+      }}>
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative min-h-screen p-4 md:p-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8 text-white">
+              <h1 className="text-4xl md:text-5xl font-bold mb-3">
+                🎵 Request a Song
+              </h1>
+              <p className="text-xl opacity-90">
+                Choose a song you'd like to hear
+              </p>
+            </div>
 
-          <Card className="bg-white/95 backdrop-blur mb-6">
-            <CardContent className="pt-6">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                <Input
-                  placeholder="Search songs or artists..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 text-lg"
-                />
-              </div>
-            </CardContent>
-          </Card>
-
-          {isLoading ? (
-            <Card className="bg-white/95 backdrop-blur">
-              <CardContent className="py-12 text-center text-gray-500">
-                Loading songs...
+            <Card className="bg-white/95 backdrop-blur mb-6 border-0 shadow-2xl">
+              <CardContent className="pt-6">
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Input
+                    placeholder="Search songs or artists..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-10 text-lg bg-white/80 border-0 shadow-lg"
+                  />
+                </div>
               </CardContent>
             </Card>
-          ) : filteredSongs.length === 0 ? (
-            <Card className="bg-white/95 backdrop-blur">
-              <CardContent className="py-12 text-center text-gray-500">
-                {searchQuery
-                  ? "No songs found matching your search"
-                  : "No songs available"}
-              </CardContent>
-            </Card>
-          ) : (
-            <div className="grid gap-4">
-              {filteredSongs.map((song) => (
-                <Card
-                  key={song.id}
-                  className="bg-white/95 backdrop-blur hover:shadow-xl transition-all cursor-pointer"
-                  onClick={() => setSelectedSong(song)}
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-start justify-between">
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <Music className="w-6 h-6 text-white" />
+
+            {isLoading ? (
+              <Card className="bg-white/95 backdrop-blur border-0 shadow-xl">
+                <CardContent className="py-12 text-center text-gray-500">
+                  Loading songs...
+                </CardContent>
+              </Card>
+            ) : filteredSongs.length === 0 ? (
+              <Card className="bg-white/95 backdrop-blur border-0 shadow-xl">
+                <CardContent className="py-12 text-center text-gray-500">
+                  {searchQuery
+                    ? "No songs found matching your search"
+                    : "No songs available"}
+                </CardContent>
+              </Card>
+            ) : (
+              <div className="grid gap-4 max-h-[70vh] overflow-y-auto">
+                {filteredSongs.map((song) => (
+                  <Card
+                    key={song.id}
+                    className="bg-white/95 backdrop-blur hover:shadow-2xl transition-all cursor-pointer border-0"
+                    onClick={() => setSelectedSong(song)}
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg">
+                            <Music className="w-6 h-6 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-bold text-gray-900">
+                              {song.title}
+                            </h3>
+                            <p className="text-gray-600 mt-1">{song.artist}</p>
+                            {song.album && (
+                              <p className="text-sm text-gray-500 mt-1">
+                                {song.album}
+                              </p>
+                            )}
+                          </div>
                         </div>
-                        <div>
-                          <h3 className="text-xl font-bold text-gray-900">
-                            {song.title}
-                          </h3>
-                          <p className="text-gray-600 mt-1">{song.artist}</p>
-                          {song.album && (
-                            <p className="text-sm text-gray-500 mt-1">
-                              {song.album}
-                            </p>
+                        <div className="flex flex-col gap-2 items-end">
+                          <Badge variant="outline" className="bg-purple-50 border-purple-200">
+                            {song.genre}
+                          </Badge>
+                          {song.play_count > 0 && (
+                            <Badge variant="secondary" className="text-xs bg-purple-100 text-purple-800">
+                              {song.play_count} requests
+                            </Badge>
                           )}
                         </div>
                       </div>
-                      <div className="flex flex-col gap-2 items-end">
-                        <Badge variant="outline" className="bg-purple-50">
-                          {song.genre}
-                        </Badge>
-                        {song.play_count > 0 && (
-                          <Badge variant="secondary" className="text-xs">
-                            {song.play_count} requests
-                          </Badge>
-                        )}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          )}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     );
