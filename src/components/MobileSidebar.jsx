@@ -62,7 +62,7 @@ export default function MobileSidebar() {
             <div
               className="text-white font-bold cursor-pointer hover:text-white/90 transition-colors text-base leading-tight"
               onClick={() => {
-                navigate("/");
+                navigate("/welcome");
                 closeSidebar();
               }}
             >

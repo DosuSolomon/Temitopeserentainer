@@ -242,10 +242,10 @@ export default function AboutArtistDialog({ open, onOpenChange }) {
                 </div>
 
                 <div className="bg-blue-50 p-6 rounded-2xl border-2 border-blue-200 shadow-lg">
-                  <h3 className="text-2xl font-bold mb-4 text-blue-900">
+                  <h3 className="text-2xl font-bold mb-2 text-blue-900">
                     Bookings
                   </h3>
-                  <p className="text-xl font-semibold mb-3 text-blue-800">
+                  <p className="text-xl font-semibold mb-2 text-blue-800">
                     Manager: Mr. Tobi Michael
                   </p>
                   <p className="text-3xl font-black text-blue-900 mb-2 leading-tight tracking-wide">
@@ -253,7 +253,7 @@ export default function AboutArtistDialog({ open, onOpenChange }) {
                   </p>
                 </div>
 
-                <p className="text-center text-xl font-bold text-green-700 italic pt-8 pb-4 bg-green-50 rounded-2xl p-6 shadow-md">
+                <p className="text-center text-xl font-bold text-green-700 italic pt-2 pb-2 bg-green-50 rounded-2xl p-6 shadow-md">
                   Thank you for your audience.
                 </p>
               </TabsContent>
