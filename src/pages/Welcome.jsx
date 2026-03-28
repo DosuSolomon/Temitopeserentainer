@@ -31,9 +31,12 @@ export default function Welcome() {
       </div>
 
       {/* Content */}
-      <div className="relative min-h-[100svh] md:min-h-screen flex flex-col justify-center items-center px-4 py-8">
+      <div className="relative min-h-[80svh] md:min-h-screen flex flex-col justify-center items-center px-4 py-8">
         {/* Main Text Content */}
         <div className="text-center text-white mb-16">
+          <p className="text-xl md:text-2xl mb-4 font-light opacity-90">
+            You're currently listening to <span className="font-bold">Temitope Serentainer</span> ....
+          </p>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 tracking-wide">
             Nigeria's First Female Solo Live Musician
           </h1>
