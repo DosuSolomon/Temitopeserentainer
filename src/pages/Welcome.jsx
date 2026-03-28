@@ -35,7 +35,7 @@ export default function Welcome() {
         {/* Main Text Content */}
         <div className="text-center text-white mb-16">
           <p className="text-xl md:text-2xl mb-4 font-light opacity-90">
-            You're currently listening to <span className="font-bold">Temitope Serentainer</span> ....
+            You're currently listening to <br /> <span className="font-bold">Temitope Serentainer</span> ....
           </p>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 tracking-wide">
             Nigeria's First Female Solo Live Musician
