@@ -82,35 +82,17 @@ export default function AddSongDialog({ open, onClose }) {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2">Album</label>
-            <Input
-              value={album}
-              onChange={(e) => setAlbum(e.target.value)}
-              placeholder="Enter album name"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-2">Genre</label>
+            <label className="block text-sm font-medium mb-2">Category</label>
             <Select value={genre} onValueChange={setGenre}>
               <SelectTrigger>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="pop">Pop</SelectItem>
-                <SelectItem value="rock">Rock</SelectItem>
-                <SelectItem value="hiphop">Hip Hop</SelectItem>
-                <SelectItem value="rnb">R&B</SelectItem>
-                <SelectItem value="jazz">Jazz</SelectItem>
-                <SelectItem value="blues">Blues</SelectItem>
-                <SelectItem value="country">Country</SelectItem>
-                <SelectItem value="electronic">Electronic</SelectItem>
-                <SelectItem value="reggae">Reggae</SelectItem>
-                <SelectItem value="afrobeats">Afrobeats</SelectItem>
-                <SelectItem value="latin">Latin</SelectItem>
-                <SelectItem value="classical">Classical</SelectItem>
-                <SelectItem value="folk">Folk</SelectItem>
-                <SelectItem value="soul">Soul</SelectItem>
-                <SelectItem value="other">Other</SelectItem>
+                <SelectItem value="Foreign">Foreign</SelectItem>
+                <SelectItem value="Other Foreign">Other Foreign</SelectItem>
+                <SelectItem value="Nigerian Oldies">Nigerian Oldies</SelectItem>
+                <SelectItem value="Nigerian Modern">Nigerian Modern</SelectItem>
+                <SelectItem value="Songs by Artist">Songs by Artist</SelectItem>
               </SelectContent>
             </Select>
           </div>

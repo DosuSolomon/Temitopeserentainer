@@ -1,12 +1,10 @@
-# Sidebar Complete ✅
+# TODO: Make sidebar menus collapsible
 
-**Mobile Yahoo Mail Style:**
-- Hamburger fixed top-left
-- Dark overlay + sidebar slide left w-80 bg-black/80 backdrop-blur
-- All content (Songs 350→RequestSong SPA nav, categories, streaming/social links, About/Feedback/Tip)
-- Dialogs: Yahoo bottom sheets (handle bar, curved top, responsive h-50/66vh)
-- No reload, icons visible, drop-shadows
+## Plan Steps:
+1. ✅ Understand files via search/read (Layout.jsx, MobileSidebar.jsx, sidebar/collapsible UI)
+2. ✅ Create TODO.md with steps
+3. ✅ Edit src/Layout.jsx: Wrap Song Categories, Streaming Platforms, Social Handles groups in Collapsible
+4. ✅ Edit src/components/MobileSidebar.jsx: Wrap the three sections in Collapsible
+5. ✅ Test changes (run npm run dev if needed, collapsible sections with arrows work on desktop/mobile)
+6. attempt_completion
 
-**Test:** `npm run dev`
-
-Done!
